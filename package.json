@@ -1,5 +1,5 @@
 {
-  "name": "tornatte-ui",
+  "name": "broom-rules-ui",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -33,11 +33,11 @@
     "clsx": "^2.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tailwind-merge": "^2.4.0"
+    "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
-    "@ladle/react": "^4.1.0",
     "@chromatic-com/storybook": "^1.6.1",
+    "@ladle/react": "^4.1.0",
     "@storybook/addon-essentials": "^8.2.7",
     "@storybook/addon-interactions": "^8.2.7",
     "@storybook/addon-links": "^8.2.7",
@@ -59,7 +59,7 @@
     "prettier": "^3.3.3",
     "storybook": "^8.2.7",
     "typescript": "5.4.2",
-    "vite": "^5.3.4",
+    "vite": "5.4.6",
     "vite-plugin-dts": "4.0.0-beta.2"
   }
 }
