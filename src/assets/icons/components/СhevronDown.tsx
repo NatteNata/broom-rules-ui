@@ -1,4 +1,4 @@
-export const ChevronDown = (props: React.SVGProps<SVGSVGElement>) => (
+export const HevronDown = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width="24"
     height="24"
