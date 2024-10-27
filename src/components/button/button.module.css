@@ -10,7 +10,12 @@
 
 .buttonRoot.primary {
     background-color: greenyellow;
-    color: white;
+    color: navy;
+}
+
+.buttonRoot:active {
+    background-color: darkseagreen;
+    color: navy;
 }
 
 .buttonRoot.secondary {

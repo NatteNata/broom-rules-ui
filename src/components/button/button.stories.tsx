@@ -1,10 +1,10 @@
-import { Button } from "./button";
-import { Meta, StoryObj } from "@storybook/react";
-import { useRef } from "react";
+import {Button} from "./button.component";
+import {Meta, StoryObj} from "@storybook/react";
+import {useState} from "react";
 
 const meta = {
-  component: Button,
-  title: "Components/Button",
+    component: Button,
+    title: "02. Components/Button",
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -12,52 +12,65 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: {
-    variant: "primary",
-    children: "Primary",
-  },
+    args: {
+        variant: "primary",
+        children: "Choose a variant or input a title in the controls below",
+        //title of the button via string text as children
+    },
 };
 
-export const Secondary: Story = {
-  args: {
-    variant: "secondary",
-    children: "Secondary",
-  },
+
+export const AsChild: Story = {
+    /*   at full width the story clearly shows that if not provided with asChild prop the width of the button doesn't trigger the link accepted as child. If provided with asChild: true -- the whole button acts as link.
+    no need for a ref*/
+    name: "Link as Child",
+    args: {
+        ...Primary.args,
+        fullWidth: true,
+        asChild: true,
+    },
+    render: (args) => {
+        return (
+            <div>
+                <Button {...args}>
+                    <a href="https://google.com" target="_blank">
+                        Go to google
+                    </a>
+                </Button>
+            </div>
+        );
+    },
 };
 
-export const FullWidth: Story = {
-  args: {
-    ...Primary.args,
-    fullWidth: true,
-    children: "Full Width",
-    variant: "secondary",
-  },
-  render: (args) => {
-    const buttonRef = useRef<HTMLButtonElement>(null);
-    const anchorRef = useRef<HTMLAnchorElement>(null);
-    return (
-      <div>
-        <Button {...args} asChild>
-          <a href="https://google.com" target="_blank" ref={anchorRef}>
-            Go to google
-          </a>
-        </Button>
-        <Button
-          {...args}
-          ref={buttonRef}
-          onClick={() => alert("clicked nice button")}
-        >
-          Nice button
-        </Button>
-        <button onClick={() => buttonRef.current?.click()}>Button</button>
-      </div>
-    );
-  },
-};
+export const WithAction: Story = {
+    args: {
+        ...Primary.args
+    },
+    render: (...args) => {
 
-export const AsLink: Story = {
-  args: {
-    ...Primary.args,
-    children: "Link",
-  },
-};
+        return (
+            <Button
+                {...args}
+                onClick={() => alert("clicked nice button")}
+            >
+                Nice button
+            </Button>
+        )
+    }
+}
+
+export const CkickableCounter: Story = {
+    args: {
+        ...Primary.args,
+        fullWidth: true,
+    },
+    render: (args) => {
+        const [counter, setCounter] = useState(0);
+        return (
+            <Button {...args} children={counter} onClick={() => setCounter(counter + 1)}/>
+        )
+    }
+}
+
+
+
