@@ -4,6 +4,7 @@ import {useState} from "react";
 
 const meta = {
     component: Button,
+    tags: ['autodocs'],
     title: "02. Components/Button",
 } satisfies Meta<typeof Button>;
 
