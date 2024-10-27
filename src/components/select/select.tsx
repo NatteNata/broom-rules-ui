@@ -3,8 +3,8 @@
 import * as React from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
 
-import { ChevronDown } from "../../assets/icons/chevron-down.tsx";
-import { cn } from "../../lib/utils.ts";
+import { HevronDown } from "../../assets/icons/components/СhevronDown.tsx";
+import { cn } from "../../utils/utils.ts";
 import { ComponentPropsWithoutRef } from "react";
 
 const Select = ({
@@ -45,7 +45,7 @@ const SelectTrigger = React.forwardRef<
   >
     {children}
     <SelectPrimitive.Icon asChild>
-      <ChevronDown className="h-4 w-4 opacity-50" />
+      <HevronDown className="h-4 w-4 opacity-50" />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ));
