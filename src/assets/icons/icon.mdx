@@ -16,9 +16,11 @@ All the icons in the design system are available as React components.
 <br/>
 
 <IconGallery>
-    {Object.entries(Icons).map(([name, Icon]) => (
-        <IconItem key={name} name={name}>
-            <Icon/>
-        </IconItem>
-    ))}
+    {Object.entries(Icons)
+        .filter(([name]) => name !== 'ChevronDown')
+        .map(([name, Icon]) => (
+            <IconItem key={name} name={name}>
+                <Icon/>
+            </IconItem>
+        ))}
 </IconGallery>

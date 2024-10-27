@@ -4,7 +4,7 @@ import * as React from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
 
 import { HevronDown } from "../../assets/icons/components/СhevronDown.tsx";
-import { cn } from "../../utils/utils.ts";
+import { cn } from "../../utils/merge-class-names.ts";
 import { ComponentPropsWithoutRef } from "react";
 
 const Select = ({
