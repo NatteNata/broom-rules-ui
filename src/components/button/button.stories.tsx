@@ -22,7 +22,7 @@ export const Primary: Story = {
 
 
 export const AsChild: Story = {
-    /*   at full width the story clearly shows that if not provided with asChild prop the width of the button doesn't trigger the link accepted as child. If provided with asChild: true -- the whole button acts as link.
+    /**   at full width the story clearly shows that if not provided with asChild prop the width of the button doesn't trigger the link accepted as child. If provided with asChild: true -- the whole button acts as link.
     no need for a ref*/
     name: "Link as Child",
     args: {
