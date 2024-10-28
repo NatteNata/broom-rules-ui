@@ -16,7 +16,7 @@ export const Button = forwardRef<ElementRef<"button">, Props>(
                 {...props}
                 ref={ref}
                 className={cn('capitalize',
-                    "flex items-center cursor-pointer box-border gap-2 p-1.5 px-6 rounded transition-colors ease-in-out",
+                    "flex items-center cursor-pointer box-border gap-2 p-1.5 px-6 rounded transition-colors ease-in-out text-white",
                     variant === "primary" &&
                     "bg-accent-500 hover:bg-accent-100 active:bg-accent-700 disabled:bg-accent-900 disabled:text-light-900",
                     variant === "secondary" &&
