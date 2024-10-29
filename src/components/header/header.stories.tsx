@@ -1,5 +1,6 @@
 import {Meta, StoryObj} from "@storybook/react";
 import {Header} from "./header.component";
+import {Logo} from "./Logo";
 
 const meta: Meta = {
     component: Header,
@@ -10,7 +11,16 @@ export default meta
 
 type Story = StoryObj<typeof meta>;
 
-export const WithLogo: Story = {}
+export const WithLogo: Story = {
+    args: {
+        children: "Logo",
+    },
+    render: (args) => {
+        return <Header {...args}>
+            <Logo/>
+        </Header>
+    }
+}
 
 export const LogoWithLink: Story = {
     args: {
@@ -19,9 +29,11 @@ export const LogoWithLink: Story = {
     render: (args) => {
 
         return (
-            <a href={'https://tornata.ru/'}>
-                <Header {...args} />
-            </a>
+            <Header {...args}>
+                <a href={'https://tornata.ru/'}>
+                    <Logo/>
+                </a>
+            </Header>
         )
     }
 }
