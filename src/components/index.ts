@@ -1,1 +1,1 @@
-export * from "./button/button.component.tsx";
+export * from './button/button.component.tsx'
