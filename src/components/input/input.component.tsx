@@ -1,7 +1,7 @@
-import { ComponentPropsWithoutRef, ElementRef, ReactNode, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, ReactNode, forwardRef } from 'react'
 
+import Search from '@/assets/icons/components/Search'
 import { cn, useGenerateId } from '@/utils'
-import { SearchIcon } from 'lucide-react'
 
 type CommonProps = {
   error?: ReactNode
@@ -9,7 +9,17 @@ type CommonProps = {
 } & ComponentPropsWithoutRef<'input'>
 
 const SimpleInput = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
-  const { className, error, id, label, name, placeholder, required, type = 'text' } = props
+  const {
+    className,
+    error,
+    id,
+    label,
+    name,
+    placeholder,
+    required,
+    type = 'text',
+    ...restProps
+  } = props
   const ID = useGenerateId(id)
 
   return (
@@ -27,9 +37,9 @@ const SimpleInput = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
           className={cn(
             'bg-inherit border border-dark-100 shadow-sm shadow-light-900 rounded-sm block',
             'text-base/6 py-1.5 px-3',
-            'hover: text-light-900 border border-light-900 placeholder-light-900',
+            'hover:bg-inherit hover:text-light-900 hover:border hover:border-light-900 hover:placeholder-light-900',
             'focus-visible:border-none focus-visible:outline-none focus-visible:ring focus-visible:ring-accent-500',
-            'active: text-light-100 border border-light-100',
+            'active:bg-inherit active:text-light-100 active:border active:border-light-100',
             'invalid:border-red-500',
             className
           )}
@@ -38,7 +48,7 @@ const SimpleInput = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
           placeholder={placeholder}
           ref={ref}
           type={type}
-          {...props}
+          {...restProps}
         ></input>
         {error ?? <span className={'text-red-500'}>{error}</span>}
       </label>
@@ -48,12 +58,28 @@ const SimpleInput = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
 
 export default SimpleInput
 
-const SearchInput = () => {
+type SearchProps = ComponentPropsWithoutRef<'input'>
+
+export const SearchInput = ({ className, ...restProps }: SearchProps) => {
   return (
-    <div>
+    <div className={cn('relative block')}>
       <span className={'sr-only'}>Search</span>
-      <SearchIcon className={'absolute inset-y-12 left-4 flex items-center pl-3'} />
-      <SimpleInput name={''} />
+      <span className={'inline-block'}>
+        <SimpleInput
+          {...restProps}
+          className={cn('pl-10', className)}
+          label={'search'}
+          name={'search'}
+          placeholder={'Input search...'}
+          results={2}
+          type={'search'}
+        />
+        <Search
+          className={'absolute inset-y-6 left-0 flex items-center pl-2'}
+          height={36}
+          width={36}
+        />
+      </span>
     </div>
   )
 }

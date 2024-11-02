@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import SimpleInput from './input.component'
+import SimpleInput, { SearchInput } from './input.component'
 
 const meta = {
   argTypes: {
@@ -50,8 +50,7 @@ export const Search: Story = {
   },
   render: args => (
     <div>
-      <SimpleInput {...args} />
-      <SimpleInput {...args} />
+      <SearchInput name={'search'} placeholder={'input search'} {...args} />
     </div>
   ),
 }
