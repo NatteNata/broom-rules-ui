@@ -1,8 +1,7 @@
 import { useState } from 'react'
 
+import { Button } from '@/components/button/button.component'
 import { Meta, StoryObj } from '@storybook/react'
-
-import { Button } from './button.component'
 
 const meta = {
   argTypes: {
@@ -107,6 +106,10 @@ export const CkickableCounter: Story = {
   render: args => {
     const [counter, setCounter] = useState(0)
 
-    return <Button {...args} children={counter} onClick={() => setCounter(counter + 1)} />
+    return (
+      <Button {...args} onClick={() => setCounter(counter + 1)}>
+        {counter}{' '}
+      </Button>
+    )
   },
 }

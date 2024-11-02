@@ -1,6 +1,6 @@
-import { ComponentPropsWithoutRef, ElementRef, ElementType, Ref, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, ElementRef, ElementType, JSX, Ref, forwardRef } from 'react'
 
-import { cn } from '../../utils/merge-class-names'
+import { cn } from '@/utils'
 
 type CardProps<T extends ElementType = 'div'> = {
   asElement?: T

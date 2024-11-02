@@ -1,47 +1,5 @@
-/* Regular */
-@font-face {
-    font-family: 'Inter';
-    src: url('/src/assets/fonts/Inter-Regular.woff2') format('woff2'),
-    url('/src/assets/fonts/Inter-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-}
-
-/* Light */
-@font-face {
-    font-family: 'Inter';
-    src: url('/src/assets/fonts/Inter-Light.woff2') format('woff2'),
-    url('/src/assets/fonts/Inter-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-}
-
-/* Medium */
-@font-face {
-    font-family: 'Inter';
-    src: url('/src/assets/fonts/Inter-Medium.woff2') format('woff2'),
-    url('/src/assets/fonts/Inter-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-}
-
-/* SemiBold */
-@font-face {
-    font-family: 'Inter';
-    src: url('/src/assets/fonts/Inter-SemiBold.woff2') format('woff2'),
-    url('/src/assets/fonts/Inter-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
-}
-
-/* Bold */
-@font-face {
-    font-family: 'Inter';
-    src: url('/src/assets/fonts/Inter-Bold.woff2') format('woff2'),
-    url('/src/assets/fonts/Inter-Bold.woff') format('woff');
-    font-weight: 700;
-    font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -55,6 +13,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
+    color: #d5dae0;
     background-color: #0d0d0d;
     scroll-behavior: smooth;
 }

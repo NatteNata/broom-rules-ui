@@ -1,4 +1,6 @@
-export const HevronDown = (props: React.SVGProps<SVGSVGElement>) => (
+import { SVGProps } from 'react'
+
+export const HevronDown = (props: SVGProps<SVGSVGElement>) => (
   <svg
     fill={'none'}
     height={'24'}

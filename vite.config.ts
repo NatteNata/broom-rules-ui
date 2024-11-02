@@ -1,4 +1,5 @@
 import { join, resolve } from 'node:path'
+import path from 'path'
 
 import react from '@vitejs/plugin-react-swc'
 import { defineConfig } from 'vite'
@@ -33,4 +34,9 @@ export default defineConfig({
     react(),
     dts({ rollupTypes: true }), // Output .d.ts files
   ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'), // Single alias for the entire `src` directory
+    },
+  },
 })

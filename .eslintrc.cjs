@@ -9,6 +9,9 @@ module.exports = {
     next: {
       rootDir: ['apps/*/'],
     },
+    "import/resolver": {
+      "typescript": {}
+    }
   },
   rules: {
     'react-refresh/only-export-components': [

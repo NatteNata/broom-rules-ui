@@ -31,7 +31,11 @@ export const Primary: Story = {
     children: (
       <>
         {options.map(({ label, value }) => {
-          return <SelectItem value={value}>{label}</SelectItem>
+          return (
+            <SelectItem key={value} value={value}>
+              {label}
+            </SelectItem>
+          )
         })}
         <SelectGroup>
           <SelectLabel>Group 1</SelectLabel>

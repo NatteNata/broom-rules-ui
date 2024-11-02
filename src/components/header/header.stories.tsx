@@ -1,7 +1,6 @@
+import { Logo } from '@/components/header/Logo'
+import { Header } from '@/components/header/header.component'
 import { Meta, StoryObj } from '@storybook/react'
-
-import { Logo } from './Logo'
-import { Header } from './header.component'
 
 const meta: Meta = {
   component: Header,

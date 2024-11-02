@@ -6,7 +6,7 @@ import {
   forwardRef,
 } from 'react'
 
-import { cn } from '../../utils/merge-class-names.ts'
+import { cn } from '@/utils'
 
 type ButtonVariant = 'ghost' | 'outlined' | 'primary' | 'secondary'
 
