@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import SimpleInput, { SearchInput } from './input.component'
+import Input from './input.component'
 
 const meta = {
   argTypes: {
@@ -10,10 +10,10 @@ const meta = {
       options: ['email', 'search', 'text', 'tel', 'password'],
     },
   },
-  component: SimpleInput,
+  component: Input,
   tags: ['autodocs'],
   title: 'Components/Input',
-} satisfies Meta<typeof SimpleInput>
+} satisfies Meta<typeof Input>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -35,8 +35,8 @@ export const Required: Story = {
   },
   render: args => (
     <div>
-      <SimpleInput {...args} />
-      <SimpleInput {...args} />
+      <Input {...args} />
+      <Input {...args} />
     </div>
   ),
 }
@@ -44,13 +44,24 @@ export const Required: Story = {
 export const Search: Story = {
   args: {
     name: 'search',
-    placeholder: 'yourmail@example.com',
-    required: true,
+    placeholder: 'input search',
     type: 'search',
   },
   render: args => (
     <div>
-      <SearchInput name={'search'} placeholder={'input search'} {...args} />
+      <Input {...args} />
+    </div>
+  ),
+}
+
+export const Password: Story = {
+  args: {
+    name: 'Password',
+    placeholder: 'Password',
+  },
+  render: args => (
+    <div>
+      <Input type={'password'} {...args} />
     </div>
   ),
 }
