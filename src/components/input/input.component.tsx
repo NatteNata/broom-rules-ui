@@ -1,6 +1,7 @@
-import { ComponentPropsWithoutRef, ReactNode, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, ReactNode, forwardRef, useState } from 'react'
 
 import Eye from '@/assets/icons/components/Eye'
+import EyeOffOutline from '@/assets/icons/components/EyeOffOutline'
 import Search from '@/assets/icons/components/Search'
 import { cn, useGenerateId } from '@/utils'
 
@@ -25,6 +26,17 @@ const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
   } = props
   const ID = useGenerateId(id)
 
+  const [inputType, setInputType] = useState(type)
+
+  const toggleMode = () => {
+    if (inputType === 'text') {
+      setInputType('password')
+    }
+    if (inputType === 'password') {
+      setInputType('text')
+    }
+  }
+
   return (
     <div>
       <label className={'block'} htmlFor={'ID'}>
@@ -48,7 +60,7 @@ const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
                 'hover:bg-inherit hover:text-light-900 hover:border hover:border-light-900 hover:placeholder-light-900',
                 'focus-visible:border-none focus-visible:outline-none focus-visible:ring focus-visible:ring-accent-500',
                 'active:bg-inherit active:text-light-100 active:border active:border-light-100',
-                'invalid:border-red-500',
+                'invalid:ring-2 invalid:ring-red-500',
                 type === 'search' && 'pl-10',
                 className
               )}
@@ -57,25 +69,29 @@ const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
               name={name}
               placeholder={placeholder}
               ref={ref}
-              type={type}
+              type={inputType}
               {...restProps}
             ></input>
             {type === 'search' && (
-              <Search
-                className={'absolute inset-y-0 left-0 flex items-center pl-2'}
-                height={36}
-                width={36}
-              />
+              <span className={'absolute inset-y-0 left-0 flex items-center pl-2'}>
+                <Search />
+              </span>
             )}
             {type === 'password' && (
-              <Eye
-                className={cn('absolute inset-y-0 right-0 items-center pr-4')}
-                height={40}
-                width={40}
-              />
+              <span
+                className={cn('absolute inset-y-0.5 right-0 items-center pr-4')}
+                onClick={toggleMode}
+              >
+                {inputType === 'password' && <Eye height={32} width={32} />}
+                {inputType === 'text' && <EyeOffOutline height={32} width={32} />}
+              </span>
             )}
           </span>
-          {error && <span className={'text-red-500'}>{error}</span>}
+          {error && (
+            <span className={'inline-block mt-1.5 text-red-500'}>
+              Email or password doesnt match
+            </span>
+          )}
         </div>
       </label>
     </div>
