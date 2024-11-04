@@ -1,21 +1,19 @@
-import { useState } from 'react'
-
 import { Meta, StoryObj } from '@storybook/react'
 
 import Input from './input.component'
 
-const meta = {
+const meta: Meta<typeof Input> = {
   argTypes: {
     error: {
-      description: 'Editable in controls',
-      type: 'boolean',
+      description: 'Editable error message in controls',
+      type: 'string',
     },
     label: {
       control: 'text',
-      description: 'Toggles in controls',
+      description: 'Editable in controls',
     },
     name: {
-      description: 'Change shows up in code, doesnt affect appearance',
+      description: 'Shows up in code, doesnt affect appearance',
     },
     placeholder: {
       control: 'text',
@@ -32,12 +30,14 @@ const meta = {
     },
   },
   component: Input,
+  // decorators: [Story => <div className={cn('flex justify-center align-middle')}>{Story()}</div>],
   tags: ['autodocs'],
   title: 'Components/Input',
-} satisfies Meta<typeof Input>
+}
+
+type Story = StoryObj<typeof Input>
 
 export default meta
-type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
@@ -51,12 +51,15 @@ export const Required: Story = {
   args: {
     label: 'Email',
     name: 'email',
-    placeholder: 'yourmail@example.com',
     required: true,
   },
+  name: 'Required * and autofill',
   render: args => (
     <div>
-      <Input {...args} />
+      <Input placeholder={'yourmail@example.com'} {...args} />
+      <br />
+      <br />
+      <Input placeholder={'Try autofill with this'} {...args} />
     </div>
   ),
 }
@@ -106,19 +109,10 @@ export const Error: Story = {
   },
   name: 'Error',
   render: args => {
-    const [errorOne, setErrorOne] = useState(false)
-
     return (
       <div>
-        <Input error={errorOne} type={'email'} {...args} />
+        <Input error={"You've got some error on your hands!"} type={'email'} {...args} />
         <br />
-        <button
-          onClick={() => setErrorOne(!errorOne)}
-          style={{ backgroundColor: 'orange', borderRadius: '20px', padding: '6px' }}
-          type={'button'}
-        >
-          Imitate error
-        </button>
       </div>
     )
   },

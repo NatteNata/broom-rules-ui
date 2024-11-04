@@ -1,9 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 import typography from '@tailwindcss/typography'
+import autoprefixer from 'autoprefixer'
 
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx,md,mdx}'],
-  plugins: [typography],
+  plugins: [typography, autoprefixer],
   theme: {
     extend: {
       colors: {

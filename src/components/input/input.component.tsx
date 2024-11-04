@@ -6,7 +6,7 @@ import Search from '@/assets/icons/components/Search'
 import { cn, useGenerateId } from '@/utils'
 
 type CommonProps = {
-  error?: ReactNode
+  error?: string
   label?: ReactNode
 } & ComponentPropsWithoutRef<'input'>
 
@@ -50,17 +50,20 @@ const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
             {label}
           </span>
         )}
-        <div className={cn('relative block')}>
+        <div className={cn('relative block group')}>
           <span>
             <input
               autoComplete={autoComplete}
               className={cn(
-                'bg-inherit border border-dark-100 shadow-sm shadow-light-900 rounded-sm block',
+                'bg-inherit placeholder-light-900 border border-dark-100 shadow-sm shadow-light-900 rounded-sm block',
                 'text-base/6 py-1.5 px-3 w-full',
-                'hover:bg-inherit hover:text-light-900 hover:border hover:border-light-900 hover:placeholder-light-900',
+                'hover:bg-inherit group-hover:text-light-100 hover:border hover:border-light-900' +
+                  ' group-hover:placeholder-light-100',
                 'focus-visible:border-none focus-visible:outline-none focus-visible:ring focus-visible:ring-accent-500',
-                'active:bg-inherit active:text-light-100 active:border active:border-light-100',
+                'active:bg-inherit active:placeholder-light-100 active:text-light-100 active:border' +
+                  ' active:border-light-100 active:stroke-light-100',
                 'invalid:ring-2 invalid:ring-red-500',
+                'autofill:shadow-[inset_0_0_0_1000px_#0d0d0d]',
                 type === 'search' && 'pl-10',
                 className
               )}
@@ -71,27 +74,31 @@ const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
               ref={ref}
               type={inputType}
               {...restProps}
-            ></input>
+            />
             {type === 'search' && (
-              <span className={'absolute inset-y-0 left-0 flex items-center pl-2'}>
+              <span
+                className={cn(
+                  'absolute inset-y-0 left-0 flex items-center pl-2',
+                  'stroke-light-700 group-hover:stroke-light-100 group-active:stroke-light-100'
+                )}
+              >
                 <Search />
               </span>
             )}
             {type === 'password' && (
               <span
-                className={cn('absolute inset-y-0.5 right-0 items-center pr-4')}
+                className={cn(
+                  'absolute inset-y-1 right-0 items-center pr-4',
+                  'stroke-light-700 group-hover:stroke-light-100 group-active:stroke-light-100'
+                )}
                 onClick={toggleMode}
               >
-                {inputType === 'password' && <Eye height={32} width={32} />}
-                {inputType === 'text' && <EyeOffOutline height={32} width={32} />}
+                {inputType === 'password' && <Eye height={30} width={30} />}
+                {inputType === 'text' && <EyeOffOutline height={30} width={30} />}
               </span>
             )}
           </span>
-          {error && (
-            <span className={'inline-block mt-1.5 text-red-500'}>
-              Email or password doesnt match
-            </span>
-          )}
+          {error && <span className={'inline-block mt-1.5 text-red-500'}>{error}</span>}
         </div>
       </label>
     </div>

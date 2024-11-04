@@ -5,15 +5,49 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+
+    --background: #0d0d0d;
+    --foreground: #d5dae0;
+}
+
 *, ::before, ::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    }
+}
 
 body {
     font-family: 'Inter', sans-serif;
-    color: #d5dae0;
-    background-color: #0d0d0d;
+    color: var(--foreground);
+    background-color: var(--background);
     scroll-behavior: smooth;
 }
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+   /*-webkit-box-shadow: 0 0 0 1000px var(--background) inset !important;*/
+    -webkit-text-fill-color:  #d5dae0;
+}
+
+
+/**
+Change Autocomplete styles in Chrome
+/*https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/ */
+/**
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: 1px solid green;
+    -webkit-text-fill-color: green;
+    color: blue; //???
+    -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+    transition: background-color 5000s ease-in-out 0s;
+}*/
