@@ -32,7 +32,7 @@ const meta: Meta<typeof Input> = {
   component: Input,
   decorators: [
     Story => (
-      <div className={'min-h-40 flex justify-center items-center py-12 mx-20'}>
+      <div className={'min-h-40 flex justify-start items-center py-12 px-20'}>
         <Story />
       </div>
     ),
@@ -115,7 +115,7 @@ export const TooLongMessage: Story = {
   },
   decorators: [
     Story => (
-      <div className={'max-w-60 min-h-40 flex justify-center items-center mx-auto'}>
+      <div className={'max-w-60 min-h-40 flex justify-start items-center mx-6'}>
         <Story />
       </div>
     ),
@@ -135,7 +135,7 @@ export const Error: Story = {
     placeholder: 'yourmail@example.com',
     required: true,
   },
-  name: 'Error',
+  name: 'Error in the field',
   render: args => {
     return (
       <div>

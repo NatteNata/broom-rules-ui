@@ -22,6 +22,13 @@ const meta = {
     },
   },
   component: Button,
+  decorators: [
+    Story => (
+      <div className={'bg-dark-900 px-12 py-12'}>
+        <Story />
+      </div>
+    ),
+  ],
   tags: ['autodocs'],
   title: 'Components/Button',
 } satisfies Meta<typeof Button>

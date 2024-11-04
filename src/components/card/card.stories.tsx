@@ -31,7 +31,7 @@ const meta: Meta<typeof Card> = {
   component: Card,
   decorators: [
     Story => (
-      <div className={'bg-dark-900'}>
+      <div className={'bg-dark-900 px-12 py-12'}>
         <Story />
       </div>
     ),
