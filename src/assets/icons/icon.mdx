@@ -16,11 +16,13 @@ All the icons in the design system are available as React components.
 <br/>
 
 <IconGallery>
-    {Object.entries(Icons)
-        .filter(([name]) => name !== 'ChevronDown')
-        .map(([name, Icon]) => (
-            <IconItem key={name} name={name}>
-                <Icon/>
-            </IconItem>
-        ))}
+    <div className={'grid grid-cols-3 gap-4'}>
+        {Object.entries(Icons)
+            .filter(([name]) => name !== 'ChevronDown')
+            .map(([name, Icon]) => (
+                <IconItem key={name} name={name}>
+                    <Icon/>
+                </IconItem>
+            ))}
+    </div>
 </IconGallery>

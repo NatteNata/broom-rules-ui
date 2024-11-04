@@ -55,7 +55,7 @@ const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
             <input
               autoComplete={autoComplete}
               className={cn(
-                'bg-inherit placeholder-light-900 border border-dark-100 shadow-sm shadow-light-900 rounded-sm block',
+                'bg-dark-500 placeholder-light-900 border border-dark-100 shadow-sm shadow-light-900 rounded-sm block',
                 'text-base/6 py-1.5 px-3 w-full truncate',
                 'hover:bg-inherit group-hover:text-light-100 hover:border hover:border-light-900' +
                   ' group-hover:placeholder-light-100',
@@ -63,7 +63,7 @@ const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
                 'active:bg-inherit active:placeholder-light-100 active:text-light-100 active:border' +
                   ' active:border-light-100 active:stroke-light-100',
                 'invalid:ring-2 invalid:ring-red-500',
-                'autofill:shadow-[inset_0_0_0_1000px_#0d0d0d]',
+                'autofill:shadow-[inset_0_0_0_1000px_#171717]',
                 type === 'search' && 'pl-10',
                 type === 'password' && 'pr-10',
                 className
@@ -99,7 +99,7 @@ const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
               </span>
             )}
           </span>
-          {error && <span className={'inline-block mt-1.5 text-red-500'}>{error}</span>}
+          {error && <span className={'inline-block mt-1.5 text-red-500 px-3'}>{error}</span>}
         </div>
       </label>
     </div>

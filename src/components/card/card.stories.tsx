@@ -1,7 +1,7 @@
 import Card from '@/components/card/card.component'
 import { Meta, StoryObj } from '@storybook/react'
 
-const meta = {
+const meta: Meta<typeof Card> = {
   argTypes: {
     asElement: {
       control: {
@@ -29,13 +29,20 @@ const meta = {
     },
   },
   component: Card,
+  decorators: [
+    Story => (
+      <div className={'bg-dark-900'}>
+        <Story />
+      </div>
+    ),
+  ],
   tags: ['autodocs'],
   title: 'Components/Card',
-} satisfies Meta<typeof Card>
+}
 
 export default meta
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof Card>
 
 export const Default: Story = {
   args: {

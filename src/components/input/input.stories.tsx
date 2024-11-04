@@ -30,7 +30,13 @@ const meta: Meta<typeof Input> = {
     },
   },
   component: Input,
-  // decorators: [Story => <div className={cn('flex justify-center align-middle')}>{Story()}</div>],
+  decorators: [
+    Story => (
+      <div className={'min-h-40 flex justify-center items-center py-12 mx-20'}>
+        <Story />
+      </div>
+    ),
+  ],
   tags: ['autodocs'],
   title: 'Components/Input',
 }
@@ -79,7 +85,7 @@ export const Search: Story = {
 
 export const Password: Story = {
   args: {
-    name: 'Password',
+    name: 'password',
     placeholder: 'Password',
   },
   render: args => (
@@ -91,7 +97,7 @@ export const Password: Story = {
 
 export const MinLengh: Story = {
   args: {
-    name: 'Password',
+    name: 'password',
     placeholder: 'Min length is 9 characters',
   },
   name: 'Minimum lengh',
@@ -102,10 +108,32 @@ export const MinLengh: Story = {
   ),
 }
 
+export const TooLongMessage: Story = {
+  args: {
+    name: 'password',
+    placeholder: 'Min length is 9 characters',
+  },
+  decorators: [
+    Story => (
+      <div className={'max-w-60 min-h-40 flex justify-center items-center mx-auto'}>
+        <Story />
+      </div>
+    ),
+  ],
+  name: 'Too long message',
+  render: args => (
+    <div>
+      <Input minLength={9} type={'password'} {...args} />
+    </div>
+  ),
+}
+
 export const Error: Story = {
   args: {
+    label: 'Email',
     name: 'email',
     placeholder: 'yourmail@example.com',
+    required: true,
   },
   name: 'Error',
   render: args => {
