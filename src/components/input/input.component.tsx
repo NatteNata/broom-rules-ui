@@ -56,7 +56,7 @@ const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
               autoComplete={autoComplete}
               className={cn(
                 'bg-inherit placeholder-light-900 border border-dark-100 shadow-sm shadow-light-900 rounded-sm block',
-                'text-base/6 py-1.5 px-3 w-full',
+                'text-base/6 py-1.5 px-3 w-full truncate',
                 'hover:bg-inherit group-hover:text-light-100 hover:border hover:border-light-900' +
                   ' group-hover:placeholder-light-100',
                 'focus-visible:border-none focus-visible:outline-none focus-visible:ring focus-visible:ring-accent-500',
@@ -65,6 +65,7 @@ const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
                 'invalid:ring-2 invalid:ring-red-500',
                 'autofill:shadow-[inset_0_0_0_1000px_#0d0d0d]',
                 type === 'search' && 'pl-10',
+                type === 'password' && 'pr-10',
                 className
               )}
               id={ID}
@@ -88,13 +89,13 @@ const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
             {type === 'password' && (
               <span
                 className={cn(
-                  'absolute inset-y-1 right-0 items-center pr-4',
+                  'absolute inset-y-1 -right-2 items-center pr-4',
                   'stroke-light-700 group-hover:stroke-light-100 group-active:stroke-light-100'
                 )}
                 onClick={toggleMode}
               >
-                {inputType === 'password' && <Eye height={30} width={30} />}
-                {inputType === 'text' && <EyeOffOutline height={30} width={30} />}
+                {inputType === 'password' && <Eye height={28} width={28} />}
+                {inputType === 'text' && <EyeOffOutline height={28} width={28} />}
               </span>
             )}
           </span>
