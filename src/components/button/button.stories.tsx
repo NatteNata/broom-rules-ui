@@ -1,63 +1,115 @@
-import { Button } from "./button";
-import { Meta, StoryObj } from "@storybook/react";
-import { useRef } from "react";
+import { useState } from 'react'
+
+import { Button } from '@/components/button/button.component'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
+  argTypes: {
+    children: {
+      control: {},
+      description: 'By default, this defines Text on the button, unless provided specific props',
+    },
+    disabled: {
+      control: 'boolean',
+    },
+    fullWidth: {
+      control: 'boolean',
+    },
+    variant: {
+      control: 'radio',
+      description: 'Chose from a preset array of variants for color and styles',
+      options: ['primary', 'secondary', 'outlined', 'ghost'],
+    },
+  },
   component: Button,
-  title: "Components/Button",
-} satisfies Meta<typeof Button>;
+  tags: ['autodocs'],
+  title: 'Components/Button',
+} satisfies Meta<typeof Button>
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>
+
+/**  title of the button via string text as children*/
 
 export const Primary: Story = {
   args: {
-    variant: "primary",
-    children: "Primary",
+    children: 'Sign up',
+    variant: 'primary',
   },
-};
+}
 
 export const Secondary: Story = {
   args: {
-    variant: "secondary",
-    children: "Secondary",
+    children: 'Edit',
+    variant: 'secondary',
   },
-};
+  name: 'Secondary',
+}
 
-export const FullWidth: Story = {
+export const Outlined: Story = {
+  args: {
+    children: 'Submit',
+    variant: 'outlined',
+  },
+}
+
+export const Ghost: Story = {
+  args: {
+    children: 'Confirm change',
+    variant: 'ghost',
+  },
+}
+
+/** args as property of a StoryObj define the interactive controls in SB, it's possible to provide args as props directly, but then they will be fixed and not interactive*/
+
+export const WithAction: Story = {
+  name: 'Clickable with alert',
+  render: args => {
+    return (
+      <Button {...args} onClick={() => alert('clicked nice button')}>
+        Nice button
+      </Button>
+    )
+  },
+}
+
+/**   at full width the story clearly shows that if not provided with asChild prop the width of the button doesn't trigger the link accepted as child. If provided with asChild: true -- the whole button acts as link.
+ no need for a ref*/
+
+export const AsChild: Story = {
   args: {
     ...Primary.args,
+    asChild: true,
     fullWidth: true,
-    children: "Full Width",
-    variant: "secondary",
   },
-  render: (args) => {
-    const buttonRef = useRef<HTMLButtonElement>(null);
-    const anchorRef = useRef<HTMLAnchorElement>(null);
+  name: 'Link as Child',
+  render: args => {
     return (
       <div>
-        <Button {...args} asChild>
-          <a href="https://google.com" target="_blank" ref={anchorRef}>
+        <Button {...args}>
+          <a href={'https://google.com'} rel={'noreferrer'} target={'_blank'}>
             Go to google
           </a>
         </Button>
-        <Button
-          {...args}
-          ref={buttonRef}
-          onClick={() => alert("clicked nice button")}
-        >
-          Nice button
-        </Button>
-        <button onClick={() => buttonRef.current?.click()}>Button</button>
       </div>
-    );
+    )
   },
-};
+}
 
-export const AsLink: Story = {
+export const CkickableCounter: Story = {
   args: {
     ...Primary.args,
-    children: "Link",
+    fullWidth: true,
   },
-};
+  name: 'Clickable with counter',
+  render: args => {
+    const [counter, setCounter] = useState(0)
+
+    return (
+      <Button {...args} onClick={() => setCounter(counter + 1)}>
+        {counter}{' '}
+      </Button>
+    )
+  },
+}
