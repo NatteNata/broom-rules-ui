@@ -4,7 +4,7 @@ import Input from './input.component'
 
 const meta: Meta<typeof Input> = {
   argTypes: {
-    error: {
+    helperMessage: {
       description: 'Editable error message in controls',
       type: 'string',
     },
@@ -95,20 +95,7 @@ export const Password: Story = {
   ),
 }
 
-export const MinLengh: Story = {
-  args: {
-    name: 'password',
-    placeholder: 'Min length is 9 characters',
-  },
-  name: 'Minimum lengh',
-  render: args => (
-    <div>
-      <Input minLength={9} type={'password'} {...args} />
-    </div>
-  ),
-}
-
-export const TooLongMessage: Story = {
+export const TooLongPlaceholder: Story = {
   args: {
     name: 'password',
     placeholder: 'Min length is 9 characters',
@@ -120,10 +107,30 @@ export const TooLongMessage: Story = {
       </div>
     ),
   ],
-  name: 'Too long message',
+  name: 'Too long placeholder',
   render: args => (
     <div>
       <Input minLength={9} type={'password'} {...args} />
+    </div>
+  ),
+}
+
+export const MinLengh: Story = {
+  args: {
+    label: 'Password',
+    name: 'password',
+    placeholder: 'Min length is 9 characters',
+    required: true,
+  },
+  name: 'Minimum lengh',
+  render: args => (
+    <div>
+      <Input
+        helperMessage={'Password must be min 9 characters!'}
+        minLength={9}
+        type={'password'}
+        {...args}
+      />
     </div>
   ),
 }
@@ -139,7 +146,7 @@ export const Error: Story = {
   render: args => {
     return (
       <div>
-        <Input error={"You've got some error on your hands!"} type={'email'} {...args} />
+        <Input helperMessage={'Please provide a valid email address.'} type={'email'} {...args} />
         <br />
       </div>
     )

@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Button } from '@/components/button/button.component'
 import { Meta, StoryObj } from '@storybook/react'
 
-const meta = {
+const meta: Meta<typeof Button> = {
   argTypes: {
     children: {
       control: {},
@@ -31,11 +31,11 @@ const meta = {
   ],
   tags: ['autodocs'],
   title: 'Components/Button',
-} satisfies Meta<typeof Button>
+}
 
 export default meta
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof Button>
 
 /**  title of the button via string text as children*/
 
