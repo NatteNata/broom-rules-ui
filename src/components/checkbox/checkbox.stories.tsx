@@ -6,7 +6,15 @@ const meta: Meta<typeof Checkbox> = {
   argTypes: {
     disabled: {
       control: 'boolean',
-      description: 'Disabled controls',
+      description: 'Choose state in controls',
+    },
+    id: {
+      control: 'text',
+      description: 'Shows only in code',
+    },
+    label: {
+      control: 'text',
+      description: 'Editable in controls',
     },
   },
   component: Checkbox,
@@ -28,5 +36,21 @@ type Story = StoryObj<typeof Checkbox>
 export const Primary: Story = {
   args: {
     id: 'tacs',
+  },
+}
+
+export const Labeled: Story = {
+  args: {
+    id: 'tacs',
+    label: 'Terms and Conditions',
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    checked: true,
+    disabled: true,
+    id: 'tacs',
+    label: 'Terms and Conditions',
   },
 }

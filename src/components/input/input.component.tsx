@@ -40,7 +40,7 @@ const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
   return (
     <div>
       <label className={'block'} htmlFor={'ID'}>
-        {label && <Label label={label} required={required} />}
+        {label && <Label forId={ID} label={label} required={required} />}
         <div className={cn('relative block group')}>
           <input
             autoComplete={autoComplete}
@@ -101,11 +101,13 @@ const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
 export default Input
 
 type LabelProps = {
-  label?: ReactNode
+  disabled?: boolean
+  forId: string
+  label: ReactNode
   required?: boolean
 } & ComponentPropsWithoutRef<'span'>
 
-export const Label = ({ className, label, required, ...restProps }: LabelProps) => {
+export const Label = ({ className, forId, label, required, ...restProps }: LabelProps) => {
   return (
     <span
       className={cn(
