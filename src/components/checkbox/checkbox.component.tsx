@@ -1,17 +1,19 @@
 import * as React from 'react'
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 
-import Checkmark from '@/assets/icons/components/Checkmark'
-import { Label } from '@/components/input/input.component'
-import { cn, useGenerateId } from '@/utils'
 import * as RadixCheckbox from '@radix-ui/react-checkbox'
+
+import Checkmark from '../../assets/icons/components/Checkmark'
+import { cn } from '../../utils/merge-class-names'
+import { useGenerateId } from '../../utils/use-generate-id'
+import { Label } from '../input/input.component'
 
 type CheckboxProps = {
   helperMessage?: string
   label?: string
 } & ComponentPropsWithoutRef<typeof RadixCheckbox.Root>
 
-const Checkbox = forwardRef<ElementRef<typeof RadixCheckbox.Root>, CheckboxProps>(
+export const Checkbox = forwardRef<ElementRef<typeof RadixCheckbox.Root>, CheckboxProps>(
   ({ className, disabled, helperMessage, id, label, required, ...props }, ref) => {
     const ID = useGenerateId(id)
 
@@ -59,5 +61,3 @@ const Checkbox = forwardRef<ElementRef<typeof RadixCheckbox.Root>, CheckboxProps
 )
 
 Checkbox.displayName = RadixCheckbox.Root.displayName
-
-export default Checkbox

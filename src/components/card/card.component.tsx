@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, ElementRef, ElementType, JSX, Ref, forwardRef } from 'react'
 
-import { cn } from '@/utils'
+import { cn } from '../../utils/merge-class-names'
 
 type CardProps<T extends ElementType = 'div'> = {
   asElement?: T
@@ -8,7 +8,7 @@ type CardProps<T extends ElementType = 'div'> = {
   ref?: Ref<ElementRef<T>>
 } & ComponentPropsWithoutRef<T>
 
-const Card = forwardRef(
+export const Card = forwardRef(
   <T extends ElementType = 'div'>(
     { asElement, className, ...restProps }: CardProps<T>,
     ref: Ref<ElementRef<T>>
@@ -24,5 +24,3 @@ const Card = forwardRef(
     )
   }
 ) as <T extends ElementType = 'div'>(props: CardProps<T>) => JSX.Element
-
-export default Card
