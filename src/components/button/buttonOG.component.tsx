@@ -6,7 +6,7 @@ import {
   forwardRef,
 } from 'react'
 
-import { cn } from '@/utils'
+import { cn } from '../../utils'
 
 type ButtonVariant = 'ghost' | 'outlined' | 'primary' | 'secondary'
 

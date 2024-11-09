@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import Checkbox from './checkbox.component'
-
+import { Checkbox } from './checkbox.component'
 const meta: Meta<typeof Checkbox> = {
   argTypes: {
     disabled: {

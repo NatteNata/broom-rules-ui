@@ -1,6 +1,6 @@
 import { TornadoIcon } from 'lucide-react'
 
-export const Logo = () => {
+export const LogoComponent = () => {
   return (
     <div className={'flex justify-items-start'}>
       <LogoIcon />

@@ -1,7 +1,8 @@
 import { useState } from 'react'
 
-import { Button } from '@/components/button/button.component'
 import { Meta, StoryObj } from '@storybook/react'
+
+import { Button } from './button.component'
 
 const meta: Meta<typeof Button> = {
   argTypes: {

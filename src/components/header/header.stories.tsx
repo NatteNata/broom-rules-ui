@@ -1,6 +1,7 @@
-import { Logo } from '@/components/header/Logo'
-import { Header } from '@/components/header/header.component'
 import { Meta, StoryObj } from '@storybook/react'
+
+import { Header } from './header.component'
+import { LogoComponent } from './logo.component'
 
 const meta: Meta = {
   component: Header,
@@ -18,7 +19,7 @@ export const WithLogo: Story = {
   render: args => {
     return (
       <Header {...args}>
-        <Logo />
+        <LogoComponent />
       </Header>
     )
   },
@@ -32,7 +33,7 @@ export const LogoWithLink: Story = {
     return (
       <Header {...args}>
         <a href={'https://tornata.ru/'}>
-          <Logo />
+          <LogoComponent />
         </a>
       </Header>
     )

@@ -34,9 +34,9 @@ export default defineConfig({
     react(),
     dts({ rollupTypes: true }), // Output .d.ts files
   ],
-  resolve: {
+  /*resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'), // Single alias for the entire `src` directory
     },
-  },
+  },*/
 })

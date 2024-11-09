@@ -1,7 +1,8 @@
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 
-import { cn } from '@/utils'
 import { Slot } from '@radix-ui/react-slot'
+
+import { cn } from '../../utils/merge-class-names'
 
 type Props = {
   asChild?: boolean
