@@ -46,6 +46,7 @@ export const Typography = forwardRef(
           variant === 'medium_text_14' && 'text-sm/6 font-medium',
           variant === 'bold_text_14' && 'text-sm/6 font-bold',
           variant === 'small_text' && 'text-xs/4 font-normal',
+          variant === 'error' && 'text-danger-500 text-xs/4 font-normal',
           variant === 'semi-bold_small_text' && 'text-xs/4 font-semibold',
           variant === 'regular_link' && 'text-accent-500 text-sm/6 font-normal underline',
           variant === 'small_link' && 'text-accent-500 text-xs/4 font-normal underline',
