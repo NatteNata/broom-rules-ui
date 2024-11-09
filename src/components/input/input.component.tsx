@@ -12,7 +12,7 @@ type CommonProps = {
 
 export const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
   const {
-    autoComplete = 'current-password',
+    autoComplete,
     className,
     helperMessage,
     id,
@@ -38,12 +38,12 @@ export const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
   }
 
   return (
-    <div>
+    <div className={'my-6'}>
       <label className={'block'} htmlFor={'ID'}>
         {label && <Label forId={ID} label={label} required={required} />}
         <div className={cn('relative block group')}>
           <input
-            autoComplete={autoComplete}
+            autoComplete={name}
             className={cn(
               'bg-dark-500 placeholder-light-900 border border-dark-100 shadow-sm shadow-light-900 rounded-sm block',
               'peer text-base/6 py-1.5 px-3 w-full truncate',
@@ -109,7 +109,7 @@ export const Label = ({ className, forId, label, required, ...restProps }: Label
   return (
     <span
       className={cn(
-        'block text-light-900 text-sm/6 mb-1.5',
+        'block text-light-900 text-sm/6',
         required && "after:content-['*'] after:ml-0.5 after:text-red-500",
         className
       )}
