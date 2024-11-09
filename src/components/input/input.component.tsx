@@ -10,7 +10,7 @@ type CommonProps = {
   label?: ReactNode
 } & ComponentPropsWithoutRef<'input'>
 
-const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
+export const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
   const {
     autoComplete = 'current-password',
     className,
@@ -97,8 +97,6 @@ const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
     </div>
   )
 })
-
-export default Input
 
 type LabelProps = {
   disabled?: boolean

@@ -59,5 +59,3 @@ export const Checkbox = forwardRef<ElementRef<typeof RadixCheckbox.Root>, Checkb
     )
   }
 )
-
-Checkbox.displayName = RadixCheckbox.Root.displayName

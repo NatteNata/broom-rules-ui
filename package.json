@@ -1,7 +1,7 @@
 {
   "name": "@tornata/brooms-ui",
   "private": false,
-  "version": "1.0.6",
+  "version": "1.0.9",
   "type": "module",
   "scripts": {
     "dev": "vite",
