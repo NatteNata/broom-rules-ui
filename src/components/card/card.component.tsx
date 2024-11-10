@@ -17,7 +17,7 @@ export const Card = forwardRef(
 
     return (
       <Component
-        className={cn('flex bg-dark-400 border border-dark-300 font-inter', className)}
+        className={cn('flex bg-red-400 border border-dark-300 font-inter', className)}
         ref={ref}
         {...restProps}
       />

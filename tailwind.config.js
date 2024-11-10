@@ -8,13 +8,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        accent: {
-          100: '#73a5ff',
-          300: '#4c8dff',
-          500: '#397df6',
-          700: '#2f68cc',
-          900: '#234e99',
-        },
         danger: {
           100: '#ff8099',
           300: '#f23d61',
@@ -36,6 +29,13 @@ export default {
           500: '#edf3fa',
           700: '#d5dae0',
           900: '#8d9094',
+        },
+        primary: {
+          100: '#73a5ff',
+          300: '#4c8dff',
+          500: '#397df6',
+          700: '#2f68cc',
+          900: '#234e99',
         },
         success: {
           100: '#80ffbf',

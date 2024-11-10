@@ -49,7 +49,7 @@ export const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
               'peer text-base/6 py-1.5 px-3 w-full truncate',
               'hover:bg-inherit group-hover:text-light-100 hover:border hover:border-light-900' +
                 ' group-hover:placeholder-light-100',
-              'focus-visible:border-none focus-visible:outline-none focus-visible:ring focus-visible:ring-accent-500',
+              'focus-visible:border-none focus-visible:outline-none focus-visible:ring focus-visible:ring-primary-500',
               'active:bg-inherit active:placeholder-light-100 active:text-light-100 active:border' +
                 ' active:border-light-100 active:stroke-light-100',
               'invalid:ring-2 invalid:ring-red-500 invalid:border-none',
