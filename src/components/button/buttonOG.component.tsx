@@ -1,4 +1,5 @@
 import {
+  ComponentProps,
   type ComponentPropsWithoutRef,
   type ElementRef,
   type ElementType,
@@ -14,7 +15,7 @@ type CommonButtonProps<T extends ElementType> = {
   as?: T
   fullWidth?: boolean
   variant?: ButtonVariant
-} & ComponentPropsWithoutRef<T>
+} & ComponentProps<'button'>
 
 type ButtonWithRefProps<T extends ElementType> = {
   ref?: ForwardedRef<ElementRef<T>>
