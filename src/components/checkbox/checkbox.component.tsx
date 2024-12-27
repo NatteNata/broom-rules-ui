@@ -6,7 +6,7 @@ import * as RadixCheckbox from '@radix-ui/react-checkbox'
 import Checkmark from '../../assets/icons/components/Checkmark'
 import { cn } from '../../utils/merge-class-names'
 import { useGenerateId } from '../../utils/use-generate-id'
-import { Label } from '../input/input.component'
+import { HelperMessage, Label } from '../input/input.component'
 
 type CheckboxProps = {
   helperMessage?: string
@@ -15,7 +15,7 @@ type CheckboxProps = {
 
 export const Checkbox = forwardRef<ElementRef<typeof RadixCheckbox.Root>, CheckboxProps>(
   ({ className, disabled, helperMessage, id, label, required, ...restProps }, ref) => {
-    const ID = useGenerateId(id)
+    const finalId = useGenerateId(id)
 
     return (
       <div className={cn('flex items-center')}>
@@ -37,6 +37,7 @@ export const Checkbox = forwardRef<ElementRef<typeof RadixCheckbox.Root>, Checkb
               'invalid:border-danger-500'
             )}
             disabled={disabled}
+            id={finalId}
             ref={ref}
             {...restProps}
           >
@@ -50,8 +51,7 @@ export const Checkbox = forwardRef<ElementRef<typeof RadixCheckbox.Root>, Checkb
             'ml-1 text-sm font-normal text-light-100 mb-0',
             disabled && 'text-light-900'
           )}
-          disabled={disabled}
-          forId={ID}
+          htmlFor={finalId}
           label={label}
           required={required}
         />
