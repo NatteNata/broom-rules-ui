@@ -62,7 +62,6 @@ export const Input = forwardRef<HTMLInputElement, CommonProps>((props, ref) => {
 						'active:border active:bg-inherit active:text-light-100 active:placeholder-light-100' +
 							' active:border-light-100 active:stroke-light-100',
 						'invalid:border-none invalid:ring-2 invalid:ring-red-500',
-						//'autofill:shadow-[inset_0_0_0_1000px_#171717]',
 						'remove-autofill bg-dark-700',
 						type === 'search' && 'pl-10',
 						type === 'password' && 'pr-10',

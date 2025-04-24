@@ -61,7 +61,13 @@
 		&:-webkit-autofill:active {
 			-webkit-box-shadow: 0 0 0 1000px inset;
 			-webkit-text-fill-color: white;
+			border: 2px solid #4c4c4c;
 			transition: background-color 5000s ease-in-out 0s;
+		}
+		&:-webkit-autofill:active,
+		&:-webkit-autofill:focus {
+			border: none;
+			outline: 2px solid #397df6;
 		}
 	}
 }
