@@ -1,2 +1,2 @@
-export * from "./merge-class-names";
-export * from "./use-generate-id";
+export * from './merge-class-names'
+export * from './use-generate-id'

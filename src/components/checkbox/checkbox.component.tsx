@@ -7,17 +7,17 @@ import {
 
 import * as RadixCheckbox from '@radix-ui/react-checkbox'
 
-import Checkmark from '../../assets/icons/components/Checkmark'
-import { cn } from '../../utils/merge-class-names'
-import { useGenerateId } from '../../utils/use-generate-id'
-import { Label } from '../input/input.component'
+import { IconCheckmark } from '@assets'
+import { Label } from '@components'
+import { cn } from '@utils'
+import { useGenerateId } from '@utils'
 
 type CheckboxProps = {
 	helperMessage?: string
 	label?: ReactNode
 } & ComponentPropsWithoutRef<typeof RadixCheckbox.Root>
 
-export const CheckboxComponent = forwardRef<
+export const Checkbox = forwardRef<
 	ElementRef<typeof RadixCheckbox.Root>,
 	CheckboxProps
 >(
@@ -51,7 +51,7 @@ export const CheckboxComponent = forwardRef<
 						{...restProps}
 					>
 						<RadixCheckbox.Indicator className='flex items-center justify-center'>
-							<Checkmark className='h-[18px] w-[18px] stroke-2 stroke-dark-900' />
+							<IconCheckmark className='h-[18px] w-[18px] stroke-2 stroke-dark-900' />
 						</RadixCheckbox.Indicator>
 					</RadixCheckbox.Root>
 				</div>

@@ -1,2 +1,2 @@
-export * from "./header.component";
-export * from "./logo.component";
+export { Header } from './header.component'
+export * from './logo.component'

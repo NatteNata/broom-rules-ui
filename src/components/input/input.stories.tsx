@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Input } from './input.component'
+import { Input } from '@components'
 
 const meta: Meta<typeof Input> = {
 	argTypes: {

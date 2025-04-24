@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { CheckboxComponent } from './checkbox.component'
-const meta: Meta<typeof CheckboxComponent> = {
+import { Checkbox } from '@components'
+const meta: Meta<typeof Checkbox> = {
 	argTypes: {
 		disabled: {
 			control: 'boolean',
@@ -16,7 +16,7 @@ const meta: Meta<typeof CheckboxComponent> = {
 			description: 'Editable in controls',
 		},
 	},
-	component: CheckboxComponent,
+	component: Checkbox,
 	decorators: [
 		Story => (
 			<div className={'min-h-40 bg-dark-900 px-20 py-20'}>
@@ -30,31 +30,26 @@ const meta: Meta<typeof CheckboxComponent> = {
 
 export default meta
 
-type Story = StoryObj<typeof CheckboxComponent>
+type Story = StoryObj<typeof Checkbox>
 
 export const AllStates: Story = {
 	render: () => (
 		<div className='space-y-4'>
-			<CheckboxComponent id='interactive-checkbox' label='Interactive' />
-			<CheckboxComponent
+			<Checkbox id='interactive-checkbox' label='Interactive' />
+			<Checkbox
 				id='fixed-checked'
 				label='Checked'
 				checked
 				onCheckedChange={undefined}
 			/>
-			<CheckboxComponent
+			<Checkbox
 				id='fixed-unchecked'
 				label='Unchecked'
 				checked={false}
 				onCheckedChange={undefined}
 			/>
-			<CheckboxComponent id='disabled-checkbox' label='Disabled' disabled />
-			<CheckboxComponent
-				id='checkbox5'
-				label='Checked + Disabled'
-				checked
-				disabled
-			/>
+			<Checkbox id='disabled-checkbox' label='Disabled' disabled />
+			<Checkbox id='checkbox5' label='Checked + Disabled' checked disabled />
 		</div>
 	),
 }
