@@ -1,79 +1,72 @@
 {
-  "name": "@tornata/brooms-ui",
-  "private": false,
-  "version": "1.0.10",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "preview": "vite preview",
-    "tailwind": "npx tailwindcss -i ./src/index.css -o ./src/styles/tailwind.css --watch",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.cjs"
-      },
-      "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.cjs"
-      }
-    },
-    "./style.css": "./dist/style.css"
-  },
-  "files": [
-    "dist"
-  ],
-  "sideEffects": [
-    "**/*.css"
-  ],
-  "dependencies": {
-    "@radix-ui/react-checkbox": "^1.1.2",
-    "@radix-ui/react-select": "^2.1.1",
-    "@radix-ui/react-slot": "^1.1.0",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.453.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tailwind-merge": "^2.5.4"
-  },
-  "devDependencies": {
-    "@chromatic-com/storybook": "^1.6.1",
-    "@it-incubator/eslint-config": "^1.0.3",
-    "@it-incubator/prettier-config": "^0.1.2",
-    "@storybook/addon-essentials": "^8.2.7",
-    "@storybook/addon-interactions": "^8.2.7",
-    "@storybook/addon-links": "^8.2.7",
-    "@storybook/addon-onboarding": "^8.2.7",
-    "@storybook/blocks": "^8.2.7",
-    "@storybook/react": "^8.2.7",
-    "@storybook/react-vite": "^8.2.7",
-    "@storybook/test": "^8.2.7",
-    "@tailwindcss/typography": "^0.5.15",
-    "@types/node": "^22.1.0",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^7.15.0",
-    "@typescript-eslint/parser": "^7.15.0",
-    "@vitejs/plugin-react-swc": "^3.5.0",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.7",
-    "eslint-plugin-storybook": "^0.8.0",
-    "prettier": "^3.3.3",
-    "storybook": "^8.2.7",
-    "tailwindcss": "^3.4.14",
-    "typescript": "5.4.2",
-    "vite": "5.4.6",
-    "vite-plugin-dts": "4.0.0-beta.2"
-  }
+	"name": "@tornata/brooms-ui",
+	"private": false,
+	"version": "1.0.10",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc -b && vite build && bun run build-styles",
+		"build-styles": "tailwindcss -m -i ./src/index.css -o ./dist/styles.css",
+		"lint": "bunx biome check --write ./src",
+		"preview": "vite preview",
+		"tailwind": "npx tailwindcss -i ./src/index.css -o ./src/styles/tailwind.css --watch",
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
+	},
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/@tornata/brooms-ui.es.js",
+			"require": "./dist/@tornata/brooms-ui.umd.js"
+		},
+		"./styles.css": {
+			"require": "./dist/styles.css",
+			"default": "./dist/styles.css"
+		}
+	},
+	"files": ["dist"],
+	"sideEffects": ["**/*.css"],
+	"peerDependencies": {
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
+	},
+	"dependencies": {
+		"@radix-ui/react-checkbox": "^1.1.2",
+		"@radix-ui/react-dialog": "^1.1.7",
+		"@radix-ui/react-select": "^2.1.1",
+		"@radix-ui/react-slot": "^1.1.0",
+		"clsx": "^2.1.1",
+		"lucide-react": "^0.453.0",
+		"@tailwindcss/cli": "^4.1.4",
+		"@tailwindcss/vite": "^4.1.4"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@chromatic-com/storybook": "^1.6.1",
+		"@storybook/addon-essentials": "^8.4.7",
+		"@storybook/addon-interactions": "^8.4.7",
+		"@storybook/addon-links": "^8.4.7",
+		"@storybook/addon-onboarding": "^8.4.7",
+		"@storybook/blocks": "^8.4.7",
+		"@storybook/react": "^8.4.7",
+		"@storybook/react-vite": "^8.4.7",
+		"@storybook/test": "^8.4.7",
+		"@tailwindcss/typography": "^0.5.15",
+		"@types/node": "^22.1.0",
+		"@types/react": "^18.3.3",
+		"@types/react-dom": "^18.3.0",
+		"@typescript-eslint/eslint-plugin": "^7.15.0",
+		"@typescript-eslint/parser": "^7.15.0",
+		"@vitejs/plugin-react-swc": "^3.5.0",
+		"storybook": "^8.4.7",
+		"tailwindcss": "^4.1.4",
+		"typescript": "5.4.2",
+		"vite": "^6.3.1",
+		"ajv": "^8.17.1",
+		"autoprefixer": "^10.4.20",
+		"vite-plugin-dts": "^4.5.3"
+	}
 }

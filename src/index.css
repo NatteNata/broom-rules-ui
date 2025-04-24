@@ -1,41 +1,90 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:wght@300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@import "tailwindcss";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
+@layer base {
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
 
-    --background: #0d0d0d;
-    --foreground: #d5dae0;
+	html {
+		font-family: sans-serif;
+		color: #d5dae0;
+	}
+
+	body {
+		background-color: #0d0d0d;
+		scroll-behavior: smooth;
+	}
+
+	img,
+	video {
+		max-width: 100%;
+		height: auto;
+	}
+}
+/*
+@layer utilities {
+	@supports (-webkit-autofill: none) {
+		.remove-autofill {
+			&:-webkit-autofill,
+			&:-webkit-autofill:hover,
+			&:-webkit-autofill:focus,
+			&:-webkit-autofill:active {
+				-webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+				-webkit-text-fill-color: white !important;
+				transition: background-color 5000s ease-in-out 0s;
+			}
+		}
+	}
+}*/
+
+@theme {
+	--color-primary-100: #73a5ff;
+	--color-primary-300: #73a5ff;
+	--color-primary-500: #397df6;
+	--color-primary-700: #2f68cc;
+	--color-primary-900: #234e99;
+
+	--color-light-100: #ffffff;
+	--color-light-300: #f7fbff;
+	--color-light-500: #edf3fa;
+	--color-light-700: #d5dae0;
+	--color-light-900: #8d9094;
+
+	--color-dark-100: #4c4c4c;
+	--color-dark-300: #333333;
+	--color-dark-400: #212121;
+	--color-dark-500: #171717;
+	--color-dark-700: #0d0d0d;
+	--color-dark-900: #000000;
+
+	--font-roboto: "Roboto", sans-serif;
+	--font-inter: "Inter", sans-serif;
 }
 
-*, ::before, ::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    color: var(--foreground);
-    background-color: var(--background);
-    scroll-behavior: smooth;
-}
-
-input:-webkit-autofill,
+/*input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
-   /*-webkit-box-shadow: 0 0 0 1000px var(--background) inset !important;*/
-    -webkit-text-fill-color:  #d5dae0;
-}
+	!*-webkit-box-shadow: 0 0 0 1000px var(--background) inset !important;*!
+	-webkit-text-fill-color: #d5dae0;
+}*/
 
-
-/**
+/*
 Change Autocomplete styles in Chrome
-/*https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/ */
-/**
+/*https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/
+ */
+/*
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus
@@ -50,4 +99,5 @@ select:-webkit-autofill:focus {
     color: blue; //???
     -webkit-box-shadow: 0 0 0px 1000px #000 inset;
     transition: background-color 5000s ease-in-out 0s;
-}*/
+}
+*/
