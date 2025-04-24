@@ -3,10 +3,6 @@
 
 @import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
 	*,
 	*::before,
@@ -32,21 +28,6 @@
 		height: auto;
 	}
 }
-/*
-@layer utilities {
-	@supports (-webkit-autofill: none) {
-		.remove-autofill {
-			&:-webkit-autofill,
-			&:-webkit-autofill:hover,
-			&:-webkit-autofill:focus,
-			&:-webkit-autofill:active {
-				-webkit-box-shadow: 0 0 0 1000px transparent inset !important;
-				-webkit-text-fill-color: white !important;
-				transition: background-color 5000s ease-in-out 0s;
-			}
-		}
-	}
-}*/
 
 @theme {
 	--color-primary-100: #73a5ff;
@@ -72,6 +53,19 @@
 	--font-inter: "Inter", sans-serif;
 }
 
+@layer utilities {
+	.remove-autofill {
+		&:-webkit-autofill,
+		&:-webkit-autofill:hover,
+		&:-webkit-autofill:focus,
+		&:-webkit-autofill:active {
+			-webkit-box-shadow: 0 0 0 1000px inset;
+			-webkit-text-fill-color: white;
+			transition: background-color 5000s ease-in-out 0s;
+		}
+	}
+}
+
 /*input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
@@ -83,9 +77,8 @@ select:-webkit-autofill {
 Change Autocomplete styles in Chrome
 /*https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/
  */
-/*
 
-input:-webkit-autofill,
+/*input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus
 textarea:-webkit-autofill,
@@ -94,10 +87,10 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-    border: 1px solid green;
-    -webkit-text-fill-color: green;
+    border: 1px solid var(--color-primary-300);
+    -webkit-text-fill-color: var(--color-primary-300);
     color: blue; //???
     -webkit-box-shadow: 0 0 0px 1000px #000 inset;
     transition: background-color 5000s ease-in-out 0s;
-}
-*/
+    caret-color: pink
+}*/
